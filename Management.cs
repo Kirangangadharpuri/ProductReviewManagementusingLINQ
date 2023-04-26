@@ -8,11 +8,12 @@ namespace ProductReviewManagement
 {
     public class Management
     {
-        public void Top3Records(List<ProductReview> ListOfProductReview)
+        public void SelectRecords(List<ProductReview> ListOfProductReview)
         {
-            var RecordData = (from Products in ListOfProductReview
-                           orderby Products.Rating descending
-                           select Products).Take(3);
+            var RecordData = from Products in ListOfProductReview
+                             where (Products.ProductID==1 || Products.ProductID == 7 || Products.ProductID == 9)
+                             && Products.Rating > 3
+                             select Products;
             foreach (var Record in RecordData)
             {
                 Console.WriteLine("{0} {1} {2} {3} {4}", Record.ProductID, Record.UserID, Record.Rating, Record.Review, Record.IsLike);
