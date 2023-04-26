@@ -42,7 +42,7 @@
             //}
 
             Management management= new Management();
-            management.SelectRecords(ProductReviewList);
+            management.RetiveCountOfRecords(ProductReviewList);
         }
     }
 }
