@@ -36,10 +36,13 @@
 
             };
 
-            foreach( var Records in ProductReviewList)
-            {
-                Console.WriteLine("{0} {1} {2} {3} {4}", Records.ProductID,Records.UserID,Records.Rating,Records.Review,Records.IsLike);
-            }
+            //foreach( var Records in ProductReviewList)
+            //{
+            //    Console.WriteLine("{0} {1} {2} {3} {4}", Records.ProductID,Records.UserID,Records.Rating,Records.Review,Records.IsLike);
+            //}
+
+            Management management= new Management();
+            management.Top3Records(ProductReviewList);
         }
     }
 }
