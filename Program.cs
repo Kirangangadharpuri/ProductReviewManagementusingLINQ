@@ -42,7 +42,7 @@
             //}
 
             Management management= new Management();
-            management.SkipTop5Records(ProductReviewList);
+            management.RetireveProductIDReview(ProductReviewList);
         }
     }
 }
