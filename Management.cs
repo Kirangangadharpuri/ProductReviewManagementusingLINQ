@@ -8,13 +8,13 @@ namespace ProductReviewManagement
 {
     public class Management
     {
-        public void RetiveProductIDAndReview(List<ProductReview> ListOfProductReview)
+        public void SkipTop5Records(List<ProductReview> ListOfProductReview)
         {
-            var RecordData =from Products in  ListOfProductReview
-                             select new { ProductID = Products.ProductID, Review = Products.Review };                            
+            var RecordData =(from Products in  ListOfProductReview
+                             select Products).Skip(5);                            
             foreach (var Record in RecordData)
             {
-                Console.WriteLine(Record.ProductID + " " + Record.Review);
+                Console.WriteLine("{0} {1} {2} {3} {4}", Record.ProductID, Record.UserID, Record.Rating, Record.Review, Record.IsLike);
             }
         }
     }
