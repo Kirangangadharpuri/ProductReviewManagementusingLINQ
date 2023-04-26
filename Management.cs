@@ -8,14 +8,13 @@ namespace ProductReviewManagement
 {
     public class Management
     {
-        public void RetiveCountOfRecords(List<ProductReview> ListOfProductReview)
+        public void RetiveProductIDAndReview(List<ProductReview> ListOfProductReview)
         {
-            var RecordData = ListOfProductReview.
-                            GroupBy(x => x.ProductID).
-                             Select(x => new { ProductID = x.Key, count = x.Count() });                            
+            var RecordData =from Products in  ListOfProductReview
+                             select new { ProductID = Products.ProductID, Review = Products.Review };                            
             foreach (var Record in RecordData)
             {
-                Console.WriteLine("For ProductID = {0} the records are {1}", Record.ProductID, Record.count);
+                Console.WriteLine(Record.ProductID + " " + Record.Review);
             }
         }
     }
